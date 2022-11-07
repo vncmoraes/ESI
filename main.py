@@ -1,3 +1,4 @@
+import sqlalchemy.exc
 from fastapi import FastAPI
 from models import *
 from sqlalchemy import create_engine
@@ -19,6 +20,11 @@ def novo_aluno(aluno: Aluno):
     with Session(engine) as session:
         objeto_aluno = AlunoORM(**aluno.dict())
         session.add(objeto_aluno)
-        session.commit()
 
-    return str(aluno)
+        try:
+            session.commit()
+        except sqlalchemy.exc.IntegrityError:
+            return {'Erro': 'O número USP e/ou email já está cadastrado!'}
+            #  retornar codigo http de erro
+
+    return {'Sucesso': 'Aluno cadastrado com sucesso!'}
