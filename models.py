@@ -6,6 +6,13 @@ from sqlalchemy import Boolean
 Base = declarative_base()  # Cria instância da classe base do modelo de banco de dados
 
 
+#  Definição da tabela "Formulário" no banco de dados
+class FormularioORM(Base):
+    __tablename__ = 'Formulario'
+    numero_usp = Column(String(10), primary_key=True, nullable=False)
+    #  Definir aqui os atributos relacionados com o preenchimento do formulário
+
+
 #  Definição da tabela "Pessoa" no banco de dados
 class PessoaORM(Base):
     __tablename__ = 'Pessoa'
