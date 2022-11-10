@@ -1,10 +1,10 @@
 /*!
   =========================================================
-  * Muse Ant Design Dashboard - v1.0.0
+  * Muse Ant Design Home - v1.0.0
   =========================================================
-  * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
+  * Product Page: https://www.creative-tim.com/product/muse-ant-design-Home
   * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
+  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-Home/blob/main/LICENSE.md)
   * Coded by Creative Tim
   =========================================================
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -342,8 +342,17 @@ function Home() {
 
   return (
     <>
-      <div className="layout-content">
-
+      <div className="layout-content" style={{alignItems: "center", justifyContent:"center"}}>
+          <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 600, alignItems: "center", justifyContent:"center"}}>
+            <p>Card content</p>
+            <p>Card content</p>
+            <p>Card content</p>
+          </Card>
+          <Card size="small" title="Small size card" extra={<a href="#">More</a>} style={{ width: 600 }}>
+            <p>Card content</p>
+            <p>Card content</p>
+            <p>Card content</p>
+          </Card>
       </div>
     </>
   );

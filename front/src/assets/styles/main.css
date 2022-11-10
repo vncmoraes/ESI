@@ -1,10 +1,10 @@
 /*!
 =========================================================
-* Muse Ant Design Dashboard - v1.0.0
+* Muse Ant Design Home - v1.0.0
 =========================================================
-* Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
+* Product Page: https://www.creative-tim.com/product/muse-ant-design-Home
 * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
+* Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-Home/blob/main/LICENSE.md)
 * Coded by Creative Tim
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -22,18 +22,18 @@ body {
 .ant-layout.ant-layout-has-sider {
   flex-direction: row;
 }
-.layout-dashboard {
+.layout-Home {
   background: transparent;
   text-align: left;
   position: relative;
   overflow-x: hidden;
 }
 @media (min-width: 992px) {
-  .layout-dashboard {
+  .layout-Home {
     overflow: auto;
   }
 }
-.layout-dashboard .ant-layout-sider.sider-primary {
+.layout-Home .ant-layout-sider.sider-primary {
   width: 250px;
   position: fixed;
   left: 0;
@@ -43,39 +43,39 @@ body {
   margin: 0;
   padding: 33px 20px;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .brand img {
+.layout-Home .ant-layout-sider.sider-primary .brand img {
   height: 30px;
 }
-.layout-dashboard .ant-layout-sider.sider-primary hr {
+.layout-Home .ant-layout-sider.sider-primary hr {
   margin: 18px 0;
   border: none;
   height: 1px;
   background-color: #f5f5f5;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .brand {
+.layout-Home .ant-layout-sider.sider-primary .brand {
   font-weight: 600;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .brand span {
+.layout-Home .ant-layout-sider.sider-primary .brand span {
   vertical-align: middle;
   margin-left: 3px;
 }
 
-.layout-dashboard .ant-layout-sider.sider-primary .ant-layout-sider-children {
+.layout-Home .ant-layout-sider.sider-primary .ant-layout-sider-children {
   width: auto;
 }
 
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-inline {
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-inline {
   border: none;
 }
-.layout-dashboard .ant-menu {
+.layout-Home .ant-menu {
   background: transparent;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-inline
   .ant-menu-item,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-inline
   .ant-menu-submenu {
@@ -83,77 +83,77 @@ body {
   overflow: visible;
 }
 
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item,
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-submenu {
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-item,
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-submenu {
   padding: 0 !important;
   height: auto;
   line-height: normal;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-inline
   .ant-menu-item:after,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-inline
   .ant-menu-submenu:after {
   display: none;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item.ant-menu-item-selected,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item.ant-menu-item:active,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item
   .ant-menu-submenu-selected,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item.ant-menu-submenu-title:active,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item
   .ant-menu-submenu:active,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu.ant-menu-item-selected,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu.ant-menu-item:active,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu
   .ant-menu-submenu-selected,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu.ant-menu-submenu-title:active,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu
   .ant-menu-submenu:active {
   background-color: transparent;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item.ant-menu-item-selected
   .active,
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item .active,
-.layout-dashboard
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-item .active,
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu.ant-menu-item-selected
   .active,
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-submenu .active {
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-submenu .active {
   background-color: #fff;
   box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
   font-weight: 600;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item a,
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-submenu a {
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-item a,
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-submenu a {
   padding: 10px 16px;
   color: #141414;
   border-radius: 8px;
@@ -162,30 +162,30 @@ body {
   white-space: nowrap;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary.ant-layout-sider-primary
   .ant-menu-item.ant-menu-item-selected
   .active
   .icon,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary.ant-layout-sider-primary
   .ant-menu-item
   .active
   .icon {
   background-color: #1890ff;
 }
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item.ant-menu-item-selected
   .active
   .icon,
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item .active .icon,
-.layout-dashboard
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-item .active .icon,
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu.ant-menu-item-selected
   .active
   .icon,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu
   .active
@@ -193,8 +193,8 @@ body {
   background-color: #1890ff;
 }
 
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item .icon,
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-submenu .icon {
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-item .icon,
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-submenu .icon {
   display: inline-flex;
   width: 32px;
   height: 32px;
@@ -207,25 +207,25 @@ body {
   vertical-align: middle;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item.ant-menu-item-selected
   .active
   svg
   path,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-item
   .active
   svg
   path,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu.ant-menu-item-selected
   .active
   svg
   path,
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-submenu
   .active
@@ -233,17 +233,17 @@ body {
   path {
   fill: #fff;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item svg path,
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-submenu svg path {
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-item svg path,
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-submenu svg path {
   fill: #bfbfbf;
 }
 
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-item a:hover,
-.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-submenu a:hover {
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-item a:hover,
+.layout-Home .ant-layout-sider.sider-primary .ant-menu-submenu a:hover {
   color: #141414;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary
   .ant-menu-inline
   .ant-menu-item.menu-item-header {
@@ -259,24 +259,24 @@ body {
   color: inherit;
 }
 
-.layout-dashboard .ant-layout-sider.sider-primary.ant-layout-sider-zero-width {
+.layout-Home .ant-layout-sider.sider-primary.ant-layout-sider-zero-width {
   overflow-x: hidden;
   width: 210px;
   margin: 0;
   padding: 33px 0;
 }
 
-.layout-dashboard.has-sidebar .ant-layout-sider.sider-primary .aside-footer {
+.layout-Home.has-sidebar .ant-layout-sider.sider-primary .aside-footer {
   display: block;
 }
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary.ant-layout-sider-primary
   .footer-box {
   background-color: #1890ff;
   color: #fff;
   box-shadow: none;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .footer-box {
+.layout-Home .ant-layout-sider.sider-primary .footer-box {
   background-color: #fff;
   color: #141414;
   padding: 16px;
@@ -285,13 +285,13 @@ body {
   margin-bottom: 8px;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary.ant-layout-sider-primary
   .footer-box
   .icon {
   background-color: #fff;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .footer-box .icon {
+.layout-Home .ant-layout-sider.sider-primary .footer-box .icon {
   display: inline-flex;
   width: 32px;
   height: 32px;
@@ -303,30 +303,30 @@ body {
   background-color: #1890ff;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary.ant-layout-sider-primary
   .footer-box
   h6 {
   color: #fff;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .footer-box h6 {
+.layout-Home .ant-layout-sider.sider-primary .footer-box h6 {
   font-weight: 600;
   font-size: 16px;
   color: #141414;
   margin-bottom: 0;
 }
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary.ant-layout-sider-primary
   .footer-box
   p {
   color: #f5f5f5;
 }
-.layout-dashboard .ant-layout-sider.sider-primary .footer-box p {
+.layout-Home .ant-layout-sider.sider-primary .footer-box p {
   color: #8c8c8c;
   font-weight: 600;
 }
 
-.layout-dashboard
+.layout-Home
   .ant-layout-sider.sider-primary.ant-layout-sider-primary
   .footer-box
   button {
@@ -335,7 +335,7 @@ body {
   color: #141414;
 }
 
-.layout-dashboard .ant-layout-sider.sider-primary .footer-box button {
+.layout-Home .ant-layout-sider.sider-primary .footer-box button {
   margin: 0;
 }
 .ant-btn-sm,
@@ -362,7 +362,7 @@ body {
   font-weight: 600;
 }
 
-.layout-dashboard .ant-layout-sider.sider-primary .aside-footer {
+.layout-Home .ant-layout-sider.sider-primary .aside-footer {
   padding-top: 100px;
   padding-bottom: 33px;
 }
@@ -375,7 +375,7 @@ body {
 .ant-layout.ant-layout-has-sider > .ant-layout-content {
   overflow-x: hidden;
 }
-.layout-dashboard .ant-layout {
+.layout-Home .ant-layout {
   background: transparent;
   position: relative;
   min-height: 100vh;
@@ -383,7 +383,7 @@ body {
   flex-shrink: 0;
 }
 
-.layout-dashboard .ant-layout-header {
+.layout-Home .ant-layout-header {
   background: transparent;
   height: auto;
   padding: 16px;
@@ -393,22 +393,22 @@ body {
   transition: 0.2s;
 }
 
-.layout-dashboard .ant-breadcrumb > span .ant-breadcrumb-link a {
+.layout-Home .ant-breadcrumb > span .ant-breadcrumb-link a {
   color: #8c8c8c;
 }
-.layout-dashboard .ant-breadcrumb > span:last-child .ant-breadcrumb-link {
+.layout-Home .ant-breadcrumb > span:last-child .ant-breadcrumb-link {
   color: #141414;
 }
-.layout-dashboard .ant-page-header-heading {
+.layout-Home .ant-page-header-heading {
   margin-top: 0;
 }
-.layout-dashboard .ant-page-header-heading .ant-page-header-heading-title {
+.layout-Home .ant-page-header-heading .ant-page-header-heading-title {
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
   margin-top: 4px;
 }
-.layout-dashboard .header-control {
+.layout-Home .header-control {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -514,7 +514,7 @@ h4 {
   line-height: 22px;
 }
 
-.layout-dashboard .header-control .ant-btn-link {
+.layout-Home .header-control .ant-btn-link {
   height: auto;
   padding: 0 7px;
   margin: 0;
@@ -526,30 +526,30 @@ h4 {
 .ant-btn svg {
   margin-right: 5px;
 }
-.layout-dashboard .header-control svg {
+.layout-Home .header-control svg {
   width: 20px;
   height: 20px;
 }
 
-.layout-dashboard .header-control svg path {
+.layout-Home .header-control svg path {
   fill: #141414;
 }
 
-.layout-dashboard .header-control .btn-sign-in {
+.layout-Home .header-control .btn-sign-in {
   height: auto;
   padding: 0 7px;
   margin: 0;
   box-shadow: none;
   color: #8c8c8c;
 }
-.layout-dashboard .header-control .btn-sign-in svg {
+.layout-Home .header-control .btn-sign-in svg {
   margin-right: 4px;
 }
-.layout-dashboard .header-control svg {
+.layout-Home .header-control svg {
   vertical-align: middle;
 }
 
-.layout-dashboard .header-control .header-search {
+.layout-Home .header-control .header-search {
   width: 213px;
   margin: 0 7px 0 0;
   border-radius: 6px;
@@ -557,11 +557,11 @@ h4 {
   border: 1px solid #d9d9d9;
 }
 
-.layout-dashboard .header-control .anticon.anticon-search svg {
+.layout-Home .header-control .anticon.anticon-search svg {
   width: 16px;
   height: 16px;
 }
-.layout-dashboard .header-control .header-search svg path {
+.layout-Home .header-control .header-search svg path {
   fill: #8c8c8c;
 }
 
@@ -576,7 +576,7 @@ h4 {
   font-size: 20px;
   margin-bottom: 0;
 }
-.layout-dashboard .settings-drawer .drawer-content h6 {
+.layout-Home .settings-drawer .drawer-content h6 {
   font-weight: 600;
   color: #141414;
 }
@@ -605,15 +605,15 @@ h6 {
   margin: 0px;
 }
 
-.layout-dashboard
+.layout-Home
   .header-control
   .header-search
   .ant-input-suffix
   .ant-input-search-icon.anticon-loading,
-.layout-dashboard .header-control .sidebar-toggler {
+.layout-Home .header-control .sidebar-toggler {
   display: block;
 }
-.layout-dashboard .header-control .btn-sign-in span {
+.layout-Home .header-control .btn-sign-in span {
   font-weight: 600;
   vertical-align: middle;
   display: none;
@@ -1072,7 +1072,7 @@ span.blue {
   justify-content: space-between;
 }
 
-.antd-pro-pages-dashboard-analysis-style-salesExtra a {
+.antd-pro-pages-Home-analysis-style-salesExtra a {
   display: inline-block;
   padding: 7px 10px;
   color: #595959;
@@ -1081,20 +1081,20 @@ span.blue {
   border-right: 1px solid transparent;
 }
 
-.antd-pro-pages-dashboard-analysis-style-salesExtra a:last-child {
+.antd-pro-pages-Home-analysis-style-salesExtra a:last-child {
   border-right: 1px solid #d9d9d9;
   border-radius: 0px 5px 5px 0px;
 }
 
-.antd-pro-pages-dashboard-analysis-style-salesExtra a:first-child {
+.antd-pro-pages-Home-analysis-style-salesExtra a:first-child {
   border-radius: 5px 0px 0px 5px;
 }
 
-.antd-pro-pages-dashboard-analysis-style-salesExtra a:hover {
+.antd-pro-pages-Home-analysis-style-salesExtra a:hover {
   color: #1890ff;
   border: 1px solid #1890ff;
 }
-.antd-pro-pages-dashboard-analysis-style-salesExtra a.active {
+.antd-pro-pages-Home-analysis-style-salesExtra a.active {
   color: #1890ff;
   border: 1px solid #1890ff;
 }
@@ -1766,7 +1766,7 @@ body {
 /* sign up start */
 .layout-default.ant-layout.layout-sign-up header.ant-layout-header {
   background-color: transparent;
-  color: #fff;
+  color: rgb(165, 16, 211);
   margin: 0;
   padding: 0 20px;
   z-index: 1;
@@ -2021,13 +2021,20 @@ body {
 .layout-default.layout-signin header.ant-layout-header {
   display: flex;
   position: relative;
-  background-color: #fff;
+  font-family: 'Birthstone';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  
+  line-height: 245px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
   color: #141414;
   box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
   flex-direction: row;
-  padding: 0 50px;
+  padding: 0 100px;
   height: 64px;
-  line-height: 64px;
+  line-height: 65px;
 }
 .fill-muted {
   fill: #8c8c8c;
@@ -2106,7 +2113,8 @@ body {
   padding: 0 20px;
 }
 .layout-default .ant-layout-content {
-  padding-top: 40px;
+  padding-top: 300px;
+  justify-content: center;
 }
 .font-regular {
   font-weight: 400;
@@ -2145,8 +2153,8 @@ body {
   color: #141414;
 }
 .sign-img img {
-  width: 100%;
-  max-width: 500px;
+  width: 50%;
+  max-width: 100px;
   margin: auto;
   display: block;
 }
@@ -2164,6 +2172,7 @@ body {
 .layout-default .ant-layout-footer .copyright {
   font-size: 16px;
   color: #8c8c8c;
+  align-items: flex-end;
 }
 
 .row-col .ant-row {
@@ -2224,13 +2233,13 @@ button.ant-btn.bell strong {
 }
 /* old css end */
 
-.layout-dashboard .ant-layout-footer {
+.layout-Home .ant-layout-footer {
   background: transparent;
   margin: 0 20px 20px 20px;
   padding: 0;
 }
 
-.layout-dashboard .ant-layout-content {
+.layout-Home .ant-layout-content {
   padding: 0;
   margin: 0 20px 0;
 }
@@ -2246,7 +2255,7 @@ button.ant-btn.bell strong {
   color: #141414;
 }
 
-.layout-dashboard .header-control .header-search input.ant-input {
+.layout-Home .header-control .header-search input.ant-input {
   height: auto;
 }
 
@@ -2266,7 +2275,7 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
   padding: 0px !important;
 }
 
-.layout-dashboard .ant-card {
+.layout-Home .ant-card {
   border-radius: 12px;
   box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
 }
@@ -2469,12 +2478,6 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
   color: #8c8c8c;
 }
 
-.card-billing-info.ant-card {
-  box-shadow: none;
-  background-color: #fafafa;
-  border: 1px solid #f5f5f5;
-}
-
 .ant-descriptions .ant-descriptions-title {
   font-size: 14px;
   font-weight: 600;
@@ -2485,19 +2488,9 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
 .fill-danger {
   fill: #ff4d4f;
 }
-.card-billing-info.ant-card .darkbtn {
-  color: #8c8c8c;
-}
 
 .col-action {
   display: flex;
-}
-
-.card-billing-info .col-action button {
-  height: 34px;
-  font-size: 12px;
-  padding: 0 15px;
-  box-shadow: none;
 }
 
 .ant-descriptions .ant-descriptions-row > td,
@@ -2524,9 +2517,6 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
   margin-bottom: 14px;
 }
 
-.card-billing-info.ant-card .ant-descriptions-header {
-  margin-bottom: 0px;
-}
 
 .card-header-date {
   margin-bottom: 0;
@@ -2597,29 +2587,29 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
   background-position: 50%;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   span.ant-page-header-heading-title {
   color: #fff;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   span.ant-breadcrumb-separator {
   color: #fff;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   span.ant-breadcrumb-link {
   color: #fff;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   .header-control
   svg
   path {
   fill: #fff;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   .btn-sign-in {
   color: #fff;
 }
@@ -2825,7 +2815,7 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
   text-align: right;
 }
 
-.layout-dashboard-rtl {
+.layout-Home-rtl {
   background: transparent;
   text-align: right;
   direction: rtl;
@@ -2833,17 +2823,17 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
   overflow-x: hidden;
 }
 
-.layout-dashboard-rtl .ant-layout-sider.sider-primary .ant-menu-item .icon,
-.layout-dashboard-rtl .ant-layout-sider.sider-primary .ant-menu-submenu .icon {
+.layout-Home-rtl .ant-layout-sider.sider-primary .ant-menu-item .icon,
+.layout-Home-rtl .ant-layout-sider.sider-primary .ant-menu-submenu .icon {
   margin-left: 11px;
   margin-right: 0;
 }
 
-.layout-dashboard-rtl .ant-timeline-item-tail {
+.layout-Home-rtl .ant-timeline-item-tail {
   right: 6.5px;
   left: auto;
 }
-.layout-dashboard-rtl .ant-timeline-item-content {
+.layout-Home-rtl .ant-timeline-item-content {
   margin: 0 33px 0 0;
 }
 
@@ -2853,62 +2843,62 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
   border-width: 3px;
 }
 
-.layout-dashboard-rtl .ant-radio-button-wrapper:first-child {
+.layout-Home-rtl .ant-radio-button-wrapper:first-child {
   border-right-width: 1px;
   border-radius: 0 4px 4px 0;
 }
-.layout-dashboard-rtl .ant-list-box td {
+.layout-Home-rtl .ant-list-box td {
   text-align: right;
 }
 
-.layout-dashboard-rtl .ant-space-horizontal {
+.layout-Home-rtl .ant-space-horizontal {
   direction: ltr;
 }
 
-.layout-dashboard-rtl .ant-btn > .anticon + span,
+.layout-Home-rtl .ant-btn > .anticon + span,
 .ant-btn > span + .anticon {
   margin-right: 8px;
   margin-left: 0px;
 }
-.layout-dashboard-rtl .setting-drwer {
+.layout-Home-rtl .setting-drwer {
   left: 30px;
   right: auto;
 }
 
-.layout-dashboard-rtl ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light {
+.layout-Home-rtl ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light {
   text-align: right;
 }
 
-.layout-dashboard-rtl .avatar-group.mt-2 {
+.layout-Home-rtl .avatar-group.mt-2 {
   direction: ltr;
 }
 .ant-list-box table tr:hover td {
   background: #fafafa;
 }
-.layout-dashboard-rtl .icon-box {
+.layout-Home-rtl .icon-box {
   margin-left: 0px;
   margin-right: auto;
 }
-.layout-dashboard-rtl .m-10,
-.layout-dashboard-rtl .mr-10,
-.layout-dashboard-rtl .mx-10 {
+.layout-Home-rtl .m-10,
+.layout-Home-rtl .mr-10,
+.layout-Home-rtl .mx-10 {
   margin-left: 10px !important;
 }
 
-.layout-dashboard-rtl .ant-progress-show-info .ant-progress-outer {
+.layout-Home-rtl .ant-progress-show-info .ant-progress-outer {
   margin-right: 0px;
   padding-right: 0px;
 }
 
-.layout-dashboard-rtl .ant-badge-count,
-.layout-dashboard-rtl .ant-badge-dot,
-.layout-dashboard-rtl .ant-badge .ant-scroll-number-custom-component {
+.layout-Home-rtl .ant-badge-count,
+.layout-Home-rtl .ant-badge-dot,
+.layout-Home-rtl .ant-badge .ant-scroll-number-custom-component {
   left: 0;
   right: auto;
   transform: translate(-50%, -50%);
 }
 
-.layout-dashboard-rtl .header-control .btn-sign-in svg {
+.layout-Home-rtl .header-control .btn-sign-in svg {
   margin-left: 4px;
   margin-right: 0px;
 }
@@ -2920,16 +2910,16 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
   direction: rtl;
 }
 
-.layout-dashboard.layout-dashboard-rtl .header-control span.ant-badge {
+.layout-Home.layout-Home-rtl .header-control span.ant-badge {
   margin: 0px 7px;
 }
 
-.layout-dashboard.layout-dashboard-rtl span.ant-input-prefix {
+.layout-Home.layout-Home-rtl span.ant-input-prefix {
   margin-right: 0px;
   margin-left: 4px;
 }
 
-.layout-dashboard-rtl .ant-drawer-left .ant-drawer-content-wrapper {
+.layout-Home-rtl .ant-drawer-left .ant-drawer-content-wrapper {
   left: 0;
   direction: rtl;
 }
@@ -2947,7 +2937,7 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
   padding-left: calc(20px - var(--scroll-bar));
 }
 
-.layout-dashboard-rtl .ant-drawer-left .ant-drawer-content-wrapper {
+.layout-Home-rtl .ant-drawer-left .ant-drawer-content-wrapper {
   left: 0;
   direction: rtl;
 }
@@ -2995,7 +2985,7 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
   height: 15px;
 }
 
-.layout-dashboard .ant-affix .ant-layout-header {
+.layout-Home .ant-affix .ant-layout-header {
   background: #fff;
   box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
   margin: 10px 20px;
@@ -3038,7 +3028,7 @@ button.ant-btn.ant-btn-dashed.ant-full-box svg {
   border-color: #096dd9;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   .header-control
   span.ant-input-affix-wrapper.header-search
   .anticon-search

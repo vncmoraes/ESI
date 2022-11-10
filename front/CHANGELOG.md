@@ -2,8 +2,8 @@
 
 ### Original Release
 
-- Started project from [Muse Ant Design Dashboard](https://www.creative-tim.com/product/muse-ant-design-dashboard?ref=changelog-madd)
-- Updated all dependencies from [Muse Ant Design Dashboard](https://www.creative-tim.com/product/muse-ant-design-dashboard?ref=changelog-madd) and those dependencies that were not working with the new React v17+ API, were deleted and/or replaced
+- Started project from [Muse Ant Design Home](https://www.creative-tim.com/product/muse-ant-design-Home?ref=changelog-madd)
+- Updated all dependencies from [Muse Ant Design Home](https://www.creative-tim.com/product/muse-ant-design-Home?ref=changelog-madd) and those dependencies that were not working with the new React v17+ API, were deleted and/or replaced
 
 ### Warning
 

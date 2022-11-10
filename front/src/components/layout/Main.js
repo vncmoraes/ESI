@@ -1,10 +1,10 @@
 /*!
   =========================================================
-  * Muse Ant Design Dashboard - v1.0.0
+  * Muse Ant Design Home - v1.0.0
   =========================================================
-  * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
+  * Product Page: https://www.creative-tim.com/product/muse-ant-design-Home
   * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
+  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-Home/blob/main/LICENSE.md)
   * Coded by Creative Tim
   =========================================================
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -44,9 +44,9 @@ function Main({ children }) {
 
   return (
     <Layout
-      className={`layout-dashboard ${
+      className={`layout-Home ${
         pathname === "profile" ? "layout-profile" : ""
-      } ${pathname === "rtl" ? "layout-dashboard-rtl" : ""}`}
+      } ${pathname === "rtl" ? "layout-Home-rtl" : ""}`}
     >
       <Drawer
         title={false}
@@ -61,8 +61,8 @@ function Main({ children }) {
         } `}
       >
         <Layout
-          className={`layout-dashboard ${
-            pathname === "rtl" ? "layout-dashboard-rtl" : ""
+          className={`layout-Home ${
+            pathname === "rtl" ? "layout-Home-rtl" : ""
           }`}
         >
           <Sider
