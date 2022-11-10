@@ -175,7 +175,7 @@ function Perfil() {
 
                 <div className="avatar-info">
                   <h4 className="font-semibold m-0">Melissa Ribeiro</h4>
-                  <p>Estudante do MEstrado em Sistemas de Informação</p>
+                  <p>Estudante do Mestrado em Sistemas de Informação</p>
                 </div>
               </Avatar.Group>
             </Col>
