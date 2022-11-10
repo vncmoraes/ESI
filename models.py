@@ -1,80 +1,72 @@
-from sqlalchemy import Column, String, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from pydantic import BaseModel, constr
-from sqlalchemy import Boolean
-
-Base = declarative_base()  # Cria instância da classe base do modelo de banco de dados
+from sqlalchemy import Column, String, Integer, Boolean, CheckConstraint
+from database import Base
 
 
-#  Definição da tabela "Formulário" no banco de dados
-class FormularioORM(Base):
-    __tablename__ = 'Formulario'
-    email_usp = Column(String(30), primary_key=False, nullable=False)
-    nome_aluno = Column(String(100), primary_key=False, nullable=False)
-    orientador = Column(String(100), primary_key=False, nullable=False)
-    numero_usp = Column(String(10), primary_key=False, nullable=False)
-    cv_lattes = Column(String(50), primary_key=False, nullable=False)
-    data_ultima_atualizacao_cv = Column(String(10), primary_key=True, nullable=False)
-    tipo_curso = Column(String(10), primary_key=False, nullable=False)
-    data_ingresso_aluno_regular = Column(String(10), primary_key=False, nullable=False)
-    resultado_ultimo_relatorio = Column(String(30), primary_key=False, nullable=False)
-    quantidade_aprovacoes_disciplinas_obrigatorias = Column(String(1), primary_key=False, nullable=False)
-    quantidade_aprovacoes_disciplinas_optativas = Column(String(1), primary_key=False, nullable=False)
-    quantidade_reprovacoes_primeiro_semestre = Column(String(1), primary_key=False, nullable=False)
-    quantidade_reprovacoes_totais = Column(String(1), primary_key=False, nullable=False)
-    exame_proficiencia_em_idiomas = Column(String(20), primary_key=False, nullable=False)
-    exame_qualificacao = Column(String(20), primary_key=False, nullable=False)
-    prazo_caso_nao_qualificado = Column(String(10), primary_key=False, nullable=False)
-    prazo_deposito_dissertacao = Column(String(10), primary_key=False, nullable=False)
-    quantidade_artigos_aceitos_ou_publicados = Column(String(1), primary_key=False, nullable=False)
-    quantidade_artigos_submetidos = Column(String(1), primary_key=False, nullable=False)
-    quantidade_artigos_em_revisao = Column(String(1), primary_key=False, nullable=False)
-    quantidade_artigos_em_escrita = Column(String(1), primary_key=False, nullable=False)
-    descricao_participacao_congresso_exterior_primeiro_semestre = Column(String(200), primary_key=False, nullable=False)
-    descricao_estagio_pesquisa_ou_visita_exterior_primeiro_semestre = Column(String(200), primary_key=False, nullable=False)
-    descricao_atuacao_PAE_primeiro_semestre = Column(String(100), primary_key=False, nullable=False)
-    descricao_prorrogacao_circular_covid19 = Column(String(100), primary_key=False, nullable=False)
-    resumo_atividades_pesquisa = Column(String(200), primary_key=False, nullable=False)
-    declaracoes_adicionais = Column(String(200), primary_key=False, nullable=False)
-    #  Definir aqui os atributos relacionados com o preenchimento do formulário
-
-
-#  Definição da tabela "Pessoa" no banco de dados
-class PessoaORM(Base):
-    __tablename__ = 'Pessoa'
-    numero_usp = Column(String(10), primary_key=True, nullable=False)
-    nome = Column(String(50), nullable=False)
+class Person(Base):
+    __tablename__ = 'Person'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(50), nullable=False)
     email_usp = Column(String(100), nullable=False, unique=True)
+    number_usp = Column(String(50), nullable=False, unique=True)
+    occupation = Column(String(15), nullable=False)
+    isCoordinator = Column(Boolean, nullable=False, default=False)
+    __table_args__ = (CheckConstraint(occupation.in_(['PROFESSOR', 'ALUNO'])),)
 
 
-#  Definição da tabela "Aluno" no banco de dados, relacionada com a tabela "Pessoa" através do número USP
-class AlunoORM(PessoaORM):
-    __tablename__ = 'Aluno'
-    numero_usp = Column(ForeignKey(PessoaORM.numero_usp), primary_key=True)
+# class FormularioORM(Base):
+#     __tablename__ = 'Formulario'
+#     id = Column(Integer, primary_key=True, autoincrement=True)
+#     email_usp = Column(String(30), nullable=False)
+#     name_student = Column(String(100), nullable=False)
+#     orientador = Column(String(100), nullable=False)
+#     number_usp = Column(String(10), nullable=False)
+#     cv_lattes = Column(String(50), nullable=False)
+#     data_ultima_att_cv = Column(String(10), nullable=False)
+#     tipo_curso = Column(String(10), nullable=False)
+#     data_ingresso_student_regular = Column(String(10), nullable=False)
+#     resultado_ultimo_relatorio = Column(String(30), nullable=False)
+#     quant_apr_disc_obg = Column(String(10), nullable=False)
+#     quant_apr_disc_opt = Column(String(10), nullable=False)
+#     quant_rpr_pr_sem = Column(String(10), nullable=False)
+#     quant_rpr_totais = Column(String(10), nullable=False)
+#     ex_proc_idiomas = Column(String(20), nullable=False)
+#     ex_quali = Column(String(20), nullable=False)
+#     prazo_nao_qualificado = Column(String(10), nullable=True)
+#     prazo_deposito_dissertacao = Column(String(10), nullable=False)
+#     quant_art_aceitos_ou_publicados = Column(String(10), nullable=False)
+#     quant_art_submetidos = Column(String(10), nullable=False)
+#     quant_art_em_revisao = Column(String(10), nullable=False)
+#     quant_art_em_escrita = Column(String(10), nullable=False)
+#     desc_participacao_congresso_exterior_pr_sem = Column(String(200), nullable=False)
+#     desc_estagio_pesquisa_ou_visita_exterior_pr_sem = Column(String(200), nullable=False)
+#     desc_atuacao_PAE_pr_sem = Column(String(100), nullable=False)
+#     desc_prorrogacao_circular_covid19 = Column(String(100), nullable=False)
+#     resumo_atividades_pesquisa = Column(String(200), nullable=False)
+#     declaracoes_adicionais = Column(String(200), nullable=False)
 
-
-#  Definição da tabela "Professor" no banco de dados, relacionada com a tabela "Pessoa" através do número USP
-class ProfessorORM(PessoaORM):
-    __tablename__ = 'Professor'
-    numero_usp = Column(ForeignKey(PessoaORM.numero_usp), primary_key=True)
-    acesso_coordenador = Column(Boolean, nullable=False)
-
-
-#  Definição da classe "Pessoa" que armazena os dados recebidos da API
-class Pessoa(BaseModel):
-    numero_usp: constr(max_length=10)
-    nome: constr(max_length=50)
-    email_usp: constr(max_length=100)
-
-    class Config:
-        orm_mode = True
-
-
-#  Definição da classe "Aluno" que armazena os dados recebidos da API. Recebe os atributos da classe "Pessoa" por herança.
-class Aluno(Pessoa):
-    pass
-
-
-#  Definição da classe "Professor" que armazena os dados recebidos da API. Recebe os atributos da classe "Pessoa" por herança.
-class Professor(Pessoa):
-    pass
+# class Student(Base):
+#     __tablename__ = 'Student'
+#     id = Column(Integer, primary_key=True, autoincrement=True)
+#     name = Column(String(50), nullable=False)
+#     email_usp = Column(String(100), nullable=False, unique=True)
+#     number_usp = Column(String(50), nullable=False, unique=True)
+#     parecer_orientador
+#     parecer_ccp
+#
+# class Professor(Base):
+#     __tablename__ = 'Professor'
+#     id = Column(Integer, primary_key=True, autoincrement=True)
+#     name = Column(String(50), nullable=False)
+#     email_usp = Column(String(100), nullable=False, unique=True)
+#     number_usp = Column(String(50), nullable=False, unique=True)
+#     is_coordinator= Column(Boolean, nullable=False, default=False)
+#
+#
+#
+# class Seem(Base):
+#     id
+#     id_student
+#     id_professor
+#     comentario
+#     avaliacao
+#     dat_seem
