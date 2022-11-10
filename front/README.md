@@ -31,7 +31,7 @@ React
 
 - [Home](https://demos.creative-tim.com/muse-ant-design-Home/#/Home?ref=readme-madd)
 - [Tables](https://demos.creative-tim.com/muse-ant-design-Home/#/tables?ref=readme-madd)
-- [Profile](https://demos.creative-tim.com/muse-ant-design-Home/#/profile?ref=readme-madd)
+- [Perfil](https://demos.creative-tim.com/muse-ant-design-Home/#/perfil?ref=readme-madd)
 - [Sign In](https://demos.creative-tim.com/muse-ant-design-Home/#/sign-in?ref=readme-madd)
 - [Sign Up](https://demos.creative-tim.com/muse-ant-design-Home/#/sign-up?ref=readme-madd)
 
@@ -72,7 +72,7 @@ Muse Ant Design Home
     │   │   ├── pages
     │   │   │   ├── Billing.js
     │   │   │   ├── Home.js
-    │   │   │   ├── Profile.js
+    │   │   │   ├── Perfil.js
     │   │   │   ├── Rtl.js
     │   │   │   ├── SignIn.js
     │   │   │   ├── SignUp.js

@@ -63,7 +63,7 @@ const template = [
     ></path>
   </svg>,
 ];
-const profile = [
+const perfil = [
   <svg
     data-v-4ebdc598=""
     width="20"

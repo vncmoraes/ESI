@@ -201,7 +201,7 @@ const logsetting = [
   </svg>,
 ];
 
-const profile = [
+const perfil = [
   <svg
     width="20"
     height="20"

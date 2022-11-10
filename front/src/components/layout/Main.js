@@ -45,7 +45,7 @@ function Main({ children }) {
   return (
     <Layout
       className={`layout-Home ${
-        pathname === "profile" ? "layout-profile" : ""
+        pathname === "perfil" ? "layout-perfil" : ""
       } ${pathname === "rtl" ? "layout-Home-rtl" : ""}`}
     >
       <Drawer

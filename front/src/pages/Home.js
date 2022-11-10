@@ -78,7 +78,7 @@ function Home() {
       ></path>
     </svg>,
   ];
-  const profile = [
+  const perfil = [
     <svg
       width="22"
       height="22"
@@ -151,7 +151,7 @@ function Home() {
       today: "Today’s Users",
       title: "3,200",
       persent: "+20%",
-      icon: profile,
+      icon: perfil,
       bnb: "bnb2",
     },
     {

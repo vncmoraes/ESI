@@ -2578,7 +2578,7 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
 .ant-list.ant-list-split.transactions-list.ant-newest .ant-list-header {
   padding-top: 0px;
 }
-.profile-nav-bg {
+.perfil-nav-bg {
   height: 300px;
   margin-top: -137.8px;
   border-radius: 12px;
@@ -2587,52 +2587,52 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
   background-position: 50%;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-perfil
   span.ant-page-header-heading-title {
   color: #fff;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-perfil
   span.ant-breadcrumb-separator {
   color: #fff;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-perfil
   span.ant-breadcrumb-link {
   color: #fff;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-perfil
   .header-control
   svg
   path {
   fill: #fff;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-perfil
   .btn-sign-in {
   color: #fff;
 }
 
-.layout-profile .ant-layout-header {
+.layout-perfil .ant-layout-header {
   margin: 10px 20px;
 }
-.card-profile-head .ant-card-head {
+.card-perfil-head .ant-card-head {
   border-bottom: 0px;
   padding: 0px 16px;
 }
 
-.card-profile-head {
+.card-perfil-head {
   margin: -53px 0 24px;
 }
 
-.card-profile-head .ant-card-head .ant-avatar {
+.card-perfil-head .ant-card-head .ant-avatar {
   box-shadow: 0 5px 10px rgb(0 0 0 / 12%);
   border-radius: 8px;
   margin: 0;
 }
 
-.card-profile-head .ant-card-head .avatar-info {
+.card-perfil-head .ant-card-head .avatar-info {
   margin-left: 16px;
 }
 
@@ -2642,15 +2642,15 @@ section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   margin-bottom: 0;
 }
 
-.card-profile-head .ant-card-head .avatar-info h4 {
+.card-perfil-head .ant-card-head .avatar-info h4 {
   font-size: 24px;
 }
 
-.card-profile-head .ant-card-head .avatar-info h4 {
+.card-perfil-head .ant-card-head .avatar-info h4 {
   font-size: 24px;
 }
 
-.card-profile-head .ant-radio-group .ant-radio-button-wrapper {
+.card-perfil-head .ant-radio-group .ant-radio-button-wrapper {
   height: auto;
   font-weight: 700;
 }
@@ -2658,7 +2658,7 @@ section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   color: #595959;
 }
 
-.layout-profile .ant-card-head {
+.layout-perfil .ant-card-head {
   padding: 0 16px;
 }
 
@@ -2686,7 +2686,7 @@ section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
 .ant-btn-link {
   box-shadow: none;
 }
-.card-profile-information hr {
+.card-perfil-information hr {
   opacity: 0.2;
 }
 
@@ -2711,8 +2711,8 @@ section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
   margin-left: 5px !important;
 }
 
-.card-profile-information .ant-descriptions .ant-descriptions-row > td,
-.card-profile-information .ant-descriptions .ant-descriptions-row > th {
+.card-perfil-information .ant-descriptions .ant-descriptions-row > td,
+.card-perfil-information .ant-descriptions .ant-descriptions-row > th {
   padding-bottom: 16px;
 }
 
@@ -3028,7 +3028,7 @@ button.ant-btn.ant-btn-dashed.ant-full-box svg {
   border-color: #096dd9;
 }
 
-section.ant-layout.ant-layout-has-sider.layout-Home.layout-profile
+section.ant-layout.ant-layout-has-sider.layout-Home.layout-perfil
   .header-control
   span.ant-input-affix-wrapper.header-search
   .anticon-search

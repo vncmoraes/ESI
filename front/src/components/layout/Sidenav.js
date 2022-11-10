@@ -66,7 +66,7 @@ function Sidenav({ color }) {
 
 
 
-  const profile = [
+  const perfil = [
     <svg
       width="20"
       height="20"
@@ -160,16 +160,16 @@ function Sidenav({ color }) {
           Account Pages
         </Menu.Item>
         <Menu.Item key="6">
-          <NavLink to="/profile">
+          <NavLink to="/perfil">
             <span
               className="icon"
               style={{
-                background: page === "profile" ? color : "",
+                background: page === "perfil" ? color : "",
               }}
             >
-              {profile}
+              {perfil}
             </span>
-            <span className="label">Profile</span>
+            <span className="label">Perfil</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="7">
