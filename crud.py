@@ -1,25 +1,61 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 import models
-import schemas
+from schemas import CreatePersonSchema, CreateSemiAnnualReportSchema, CreateStudentSchema, CreateOrientatorSchema, \
+    CreateCoordinatorSchema
 
 
-def create_person(db: Session, person: schemas.CreatePerson, occupation: str):
-    db_person = get_person_by_email(db, email=person.email_usp)
-    if db_person:
-        raise HTTPException(status_code=400, detail="Email já registrado")
-    db_person = get_person_by_number_usp(db, number_usp=person.number_usp)
-    if db_person:
-        raise HTTPException(status_code=400, detail="number_usp já registrado")
+def create_orientator(db: Session, orientator: CreateOrientatorSchema):
+    if exist_person_with_email_or_number_usp(db, orientator.email_usp, orientator.number_usp):
+        raise HTTPException(status_code=400, detail="Email e/ou Numero USP já registrados")
 
-    db_person = models.Person(**person.dict(), occupation=occupation)
-    db.add(db_person)
+    db_orientator = models.Orientator(**orientator.dict())
+    db.add(db_orientator)
     db.commit()
-    return db_person
+    return db_orientator
+
+
+def create_coordinator(db: Session, coordinator: CreateCoordinatorSchema):
+    if exist_person_with_email_or_number_usp(db, coordinator.email_usp, coordinator.number_usp):
+        raise HTTPException(status_code=400, detail="Email e/ou Numero USP já registrados")
+
+    db_coordinator = models.Coordinator(**coordinator.dict())
+    db.add(db_coordinator)
+    db.commit()
+    return db_coordinator
+
+
+def create_student(db: Session, student: CreateStudentSchema):
+    if exist_person_with_email_or_number_usp(db, student.email_usp, student.number_usp):
+        raise HTTPException(status_code=400, detail="Email e/ou Numero USP já registrados")
+
+    db_student = models.Student(number_usp=student.number_usp, name=student.name, email_usp=student.email_usp)
+    db.add(db_student)
+    db.commit()
+    return db_student
+
+
+def exist_person_with_email_or_number_usp(db: Session, email: str, number_usp: str):
+    db_person = db.query(models.Person).filter(models.Person.email_usp == email).filter(
+        models.Person.number_usp == number_usp).first()
+    if db_person is None:
+        return False
+    return True
+
+
+def set_student_orientator(db: Session, student: models.Person, orientator_number_usp):
+    orientator = create_query_builder(db, models.Orientator, number_usp=orientator_number_usp).first()
+    if orientator is None:
+        raise HTTPException(status_code=400,
+                            detail=f"nenhum orientador com numero usp: {orientator_number_usp} foi encontrado")
+    setattr(student, 'orientator', orientator)
+    db.commit()
+    db.refresh(student)
+    return student
 
 
 def delete_person_by_number_usp(db: Session, number_usp: str):
-    db_person = get_person_by_number_usp(db, number_usp=number_usp)
+    db_person = create_query_builder(db, models.Person, number_usp=number_usp).first()
     if db_person is None:
         raise HTTPException(status_code=400, detail=f"nenhuma pessoa com numero usp: {number_usp} foi encontrada")
     db.delete(db_person)
@@ -28,63 +64,25 @@ def delete_person_by_number_usp(db: Session, number_usp: str):
 
 
 def get_persons(db: Session):
-    return create_person_filter(db=db).all()
+    return create_query_builder(db, models.Person).all()
 
 
-def get_persons_by_occupation(db: Session, occupation: str):
-    return create_person_filter(db=db, occupation=occupation).all()
-
-
-def get_person_by_email(db: Session, email: str):
-    return create_person_filter(db=db, email_usp=email).first()
-
-
-def get_person_by_email_and_occupation(db: Session, email: str, occupation: str):
-    return create_person_filter(db=db, email_usp=email, occupation=occupation).first()
-
-
-def get_person_by_number_usp(db: Session, number_usp: str):
-    return create_person_filter(db=db, number_usp=number_usp).first()
-
-
-def get_person_by_number_usp_and_occupation(db: Session, number_usp: str, occupation: str):
-    return create_person_filter(db=db, number_usp=number_usp, occupation=occupation).first()
-
-
-def create_person_filter(db: Session, **kwargs):
-    query = db.query(models.Person)
+def create_query_builder(db: Session, class_name, **kwargs):
+    query = db.query(class_name)
     if kwargs.get("email_usp") is not None:
-        query = query.filter(models.Person.email_usp == kwargs.get("email_usp"))
+        query = query.filter(class_name.email_usp == kwargs.get("email_usp"))
     if kwargs.get("number_usp") is not None:
-        query = query.filter(models.Person.number_usp == kwargs.get("number_usp"))
-    if kwargs.get("occupation") is not None:
-        query = query.filter(models.Person.occupation == kwargs.get("occupation"))
-    if kwargs.get("isCoordinator") is not None:
-        query = query.filter(models.Person.isCoordinator == kwargs.get("isCoordinator"))
+        query = query.filter(class_name.number_usp == kwargs.get("number_usp"))
     return query
 
 
-def add_teacher_to_coordination(number_usp: str, db: Session):
-    teacher = get_person_by_number_usp_and_occupation(db, number_usp, "PROFESSOR")
-    if teacher is None:
-        raise HTTPException(status_code=400, detail=f"nenhum PROFESSOR com numero usp: {number_usp} foi encontrado")
-    if teacher.isCoordinator is True:
-        raise HTTPException(status_code=400, detail=f"{teacher.name} já faz parte da coordenacao")
-    setattr(teacher, "isCoordinator", True)
+def create_semi_annual_report(db: Session, report_input: CreateSemiAnnualReportSchema):
+    student = create_query_builder(db, models.Student, number_usp=report_input.student_nusp).first()
+    if student is None:
+        raise HTTPException(status_code=400,
+                            detail=f"nenhum ALUNO com numero usp: {report_input.student_nusp} foi encontrado")
+    db_report = models.SemiAnnualReportModel(**report_input.dict(), student=student)
+    db.add(db_report)
     db.commit()
-    return teacher
-
-
-def remove_teacher_from_coordination(number_usp: str, db: Session):
-    teacher = get_person_by_number_usp_and_occupation(db, number_usp, "PROFESSOR")
-    if teacher is None:
-        raise HTTPException(status_code=400, detail=f"nenhum PROFESSOR com numero usp: {number_usp} foi encontrado")
-    if not teacher.isCoordinator:
-        raise HTTPException(status_code=400, detail=f"{teacher.name} nao faz parte da coordenacao")
-    setattr(teacher, "isCoordinator", False)
-    db.commit()
-    return teacher
-
-
-def get_coordination(db: Session):
-    return create_person_filter(db=db, occupation="PROFESSOR", isCoordinator=True).all()
+    db.refresh(db_report)
+    return db_report
