@@ -2,8 +2,11 @@ from typing import List
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 import crud
-import schemas
+import models
 from database import engine, SessionLocal, Base
+from schemas import SemiAnnualReportSchema, CreateSemiAnnualReportSchema, \
+    StudentSchema, CreateStudentSchema, OrientatorSchema, CreateOrientatorSchema, CreateCoordinatorSchema, \
+    CoordinatorSchema
 
 Base.metadata.create_all(engine)  # Realiza a criação das tabelas presentes no módulo "orms.py"
 api = FastAPI()  # Cria instância da biblioteca FastAPI
@@ -18,66 +21,78 @@ def get_db():
         db.close()
 
 
-@api.post("/teachers/create/", response_model=schemas.Person)
-def create_teacher(teacher: schemas.CreatePerson, db: Session = Depends(get_db)):
-    return crud.create_person(db, teacher, "PROFESSOR")
+# @api.get("/persons/", response_model=List[PersonSchema])
+# def get_persons(db: Session = Depends(get_db)):
+#     persons = crud.get_persons(db)
+#     return persons
+#
+#
+# @api.delete("/persons/{number_usp}", response_model=PersonSchema)
+# def delete_person_by_number_usp(number_usp: str, db: Session = Depends(get_db)):
+#     return crud.delete_person_by_number_usp(db, number_usp)
 
 
-@api.get("/teachers/", response_model=List[schemas.Person])
-def get_teachers(db: Session = Depends(get_db)):
-    teachers = crud.get_persons_by_occupation(db, occupation="PROFESSOR")
-    return teachers
+
+@api.post("/orientators/create/", response_model=OrientatorSchema)
+def create_orientator(orientator: CreateOrientatorSchema, db: Session = Depends(get_db)):
+    return crud.create_orientator(db, orientator)
 
 
-@api.get("/teachers/{number_usp}", response_model=schemas.Person)
-def get_teacher_by_number_usp(number_usp: str, db: Session = Depends(get_db)):
-    teacher = crud.get_person_by_number_usp_and_occupation(db, number_usp, "PROFESSOR")
-    if teacher is None:
-        raise HTTPException(status_code=400, detail=f"nenhum PROFESSOR com numero usp: {number_usp} foi encontrado")
-    return teacher
+@api.get("/orientators/", response_model=List[OrientatorSchema])
+def get_orientators(db: Session = Depends(get_db)):
+    orientators = crud.create_query_builder(db, models.Orientator).all()
+    return orientators
 
 
-@api.post("/students/create/", response_model=schemas.Person)
-def create_student(student: schemas.CreatePerson, db: Session = Depends(get_db)):
-    return crud.create_person(db, student, "ALUNO")
+@api.get("/orientators/{number_usp}", response_model=OrientatorSchema)
+def get_orientator_by_number_usp(number_usp: str, db: Session = Depends(get_db)):
+    orientator = crud.create_query_builder(db, models.Orientator, number_usp=number_usp).first()
+    if orientator is None:
+        raise HTTPException(status_code=400, detail=f"nenhum ORIENTADOR com numero usp: {number_usp} foi encontrado")
+    return orientator
 
 
-@api.get("/students/", response_model=List[schemas.Person])
+@api.post("/students/create/", response_model=StudentSchema)
+def create_student(student: CreateStudentSchema, db: Session = Depends(get_db)):
+    db_student = crud.create_student(db, student)
+    if student.orientator_nusp:
+        db_student = crud.set_student_orientator(db, db_student, student.orientator_nusp)
+    return db_student
+
+
+@api.get("/students/", response_model=List[StudentSchema])
 def get_students(db: Session = Depends(get_db)):
-    students = crud.get_persons_by_occupation(db, occupation="ALUNO")
+    students = crud.create_query_builder(db, models.Student).all()
     return students
 
 
-@api.get("/students/{number_usp}", response_model=schemas.Person)
+@api.get("/students/{number_usp}", response_model=StudentSchema)
 def get_student_by_number_usp(number_usp: str, db: Session = Depends(get_db)):
-    student = crud.get_person_by_number_usp_and_occupation(db, number_usp, "ALUNO")
+    student = crud.create_query_builder(db, models.Student, number_usp=number_usp).first()
     if student is None:
         raise HTTPException(status_code=400, detail=f"nenhum ALUNO com numero usp: {number_usp} foi encontrado")
     return student
 
 
-@api.get("/persons/", response_model=List[schemas.Person])
-def get_persons(db: Session = Depends(get_db)):
-    persons = crud.get_persons(db)
-    return persons
+@api.post("/coordinators/create/", response_model=CoordinatorSchema)
+def create_coordinator(coordinator: CreateCoordinatorSchema, db: Session = Depends(get_db)):
+    return crud.create_coordinator(db, coordinator)
 
 
-@api.delete("/persons/{number_usp}", response_model=schemas.Person)
-def delete_person_by_number_usp(number_usp: str, db: Session = Depends(get_db)):
-    return crud.delete_person_by_number_usp(db, number_usp)
+@api.get("/coordinators/", response_model=List[CoordinatorSchema])
+def get_coordinators(db: Session = Depends(get_db)):
+    coordinators = crud.create_query_builder(db, models.Coordinator).all()
+    return coordinators
 
 
-@api.get("/persons/{number_usp}", response_model=schemas.Person)
-def get_person_by_number_usp(number_usp: str, db: Session = Depends(get_db)):
-    person = crud.get_person_by_number_usp(db, number_usp)
-    return person
+@api.get("/coordinators/{number_usp}/", response_model=CoordinatorSchema)
+def get_coordinator_by_number_usp(number_usp: str, db: Session = Depends(get_db)):
+    coordinator = crud.create_query_builder(db, models.Coordinator, number_usp=number_usp).first()
+    if coordinator is None:
+        raise HTTPException(status_code=400, detail=f"nenhum COORDENADOR com numero usp: {number_usp} foi encontrado")
+    return coordinator
 
 
-@api.post("/coordination/add/{number_usp}", response_model=schemas.Person)
-def add_teacher_to_coordination(number_usp: str, db: Session = Depends(get_db)):
-    return crud.add_teacher_to_coordination(number_usp, db)
-
-
-@api.post("/coordination/remove/{number_usp}", response_model=schemas.Person)
-def remove_teacher_from_coordination(number_usp: str, db: Session = Depends(get_db)):
-    return crud.remove_teacher_from_coordination(number_usp, db)
+@api.post("/reports/create/", response_model=SemiAnnualReportSchema)
+def create_semi_annual_report(report: CreateSemiAnnualReportSchema, db: Session = Depends(get_db)):
+    return crud.create_semi_annual_report(db, report)
