@@ -12,6 +12,10 @@ class PersonBaseSchema(BaseModel):
         orm_mode = True
 
 
+class UpdatePersonSchema(BaseModel):
+    name: Optional[constr(max_length=50)]
+
+
 class OrientatorBaseSchema(PersonBaseSchema):
     pass
 
@@ -21,6 +25,10 @@ class CreateOrientatorSchema(OrientatorBaseSchema):
 
 
 class StudentBaseSchema(PersonBaseSchema):
+    pass
+
+
+class UpdateCoordinatorSchema(UpdatePersonSchema):
     pass
 
 
@@ -37,6 +45,10 @@ class OrientatorSchema(PersonBaseSchema):
 
     class Config:
         orm_mode = True
+
+
+class UpdateOrientatorSchema(UpdatePersonSchema):
+    pass
 
 
 class SemiAnnualReportBaseSchema(BaseModel):
@@ -102,8 +114,5 @@ class CreateStudentSchema(PersonBaseSchema):
     orientator_nusp: Optional[constr(max_length=10)]
 
 
-class CreatePersonSchema(PersonBaseSchema):
+class UpdateStudentSchema(UpdatePersonSchema):
     pass
-
-    class Config:
-        orm_mode = True
