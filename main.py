@@ -6,7 +6,7 @@ import models
 from database import engine, SessionLocal, Base
 from schemas import SemiAnnualReportSchema, CreateSemiAnnualReportSchema, \
     StudentSchema, CreateStudentSchema, OrientatorSchema, CreateOrientatorSchema, CreateCoordinatorSchema, \
-    CoordinatorSchema
+    CoordinatorSchema, UpdateCoordinatorSchema, UpdateStudentSchema, UpdateOrientatorSchema
 
 Base.metadata.create_all(engine)  # Realiza a criação das tabelas presentes no módulo "orms.py"
 api = FastAPI()  # Cria instância da biblioteca FastAPI
@@ -21,22 +21,14 @@ def get_db():
         db.close()
 
 
-# @api.get("/persons/", response_model=List[PersonSchema])
-# def get_persons(db: Session = Depends(get_db)):
-#     persons = crud.get_persons(db)
-#     return persons
-#
-#
-# @api.delete("/persons/{number_usp}", response_model=PersonSchema)
-# def delete_person_by_number_usp(number_usp: str, db: Session = Depends(get_db)):
-#     return crud.delete_person_by_number_usp(db, number_usp)
-
-
-
 @api.post("/orientators/create/", response_model=OrientatorSchema)
 def create_orientator(orientator: CreateOrientatorSchema, db: Session = Depends(get_db)):
     return crud.create_orientator(db, orientator)
 
+@api.put("/orientators/{number_usp}/", response_model=OrientatorSchema)
+def update_orientator_by_number_usp(orientator: UpdateOrientatorSchema, number_usp: str,
+                                 db: Session = Depends(get_db)):
+    return crud.update_orientator(db, number_usp, orientator)
 
 @api.get("/orientators/", response_model=List[OrientatorSchema])
 def get_orientators(db: Session = Depends(get_db)):
@@ -58,6 +50,12 @@ def create_student(student: CreateStudentSchema, db: Session = Depends(get_db)):
     if student.orientator_nusp:
         db_student = crud.set_student_orientator(db, db_student, student.orientator_nusp)
     return db_student
+
+
+@api.put("/students/{number_usp}/", response_model=StudentSchema)
+def update_student_by_number_usp(student: UpdateStudentSchema, number_usp: str,
+                                 db: Session = Depends(get_db)):
+    return crud.update_student(db, number_usp, student)
 
 
 @api.get("/students/", response_model=List[StudentSchema])
@@ -83,6 +81,12 @@ def create_coordinator(coordinator: CreateCoordinatorSchema, db: Session = Depen
 def get_coordinators(db: Session = Depends(get_db)):
     coordinators = crud.create_query_builder(db, models.Coordinator).all()
     return coordinators
+
+
+@api.put("/coordinators/{number_usp}/", response_model=CoordinatorSchema)
+def update_coordinator_by_number_usp(coordinator: UpdateCoordinatorSchema, number_usp: str,
+                                     db: Session = Depends(get_db)):
+    return crud.update_coordinator(db, number_usp, coordinator)
 
 
 @api.get("/coordinators/{number_usp}/", response_model=CoordinatorSchema)

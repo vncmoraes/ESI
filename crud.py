@@ -1,8 +1,10 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy import update
+
 import models
-from schemas import CreatePersonSchema, CreateSemiAnnualReportSchema, CreateStudentSchema, CreateOrientatorSchema, \
-    CreateCoordinatorSchema
+from schemas import CreateSemiAnnualReportSchema, CreateStudentSchema, CreateOrientatorSchema, \
+    CreateCoordinatorSchema, UpdateCoordinatorSchema, UpdateOrientatorSchema, UpdateStudentSchema
 
 
 def create_orientator(db: Session, orientator: CreateOrientatorSchema):
@@ -33,6 +35,54 @@ def create_student(db: Session, student: CreateStudentSchema):
     db.add(db_student)
     db.commit()
     return db_student
+
+
+def update_student(db: Session, number_usp: str, student: UpdateStudentSchema):
+    if not student.dict(exclude_none=True):
+        raise HTTPException(status_code=400, detail="Nao há nenhum campo para atualizar")
+
+    db_student = db.query(models.Student).filter(models.Person.number_usp == number_usp).first()
+    if db_student is None:
+        raise HTTPException(status_code=400, detail="Nenhum Estudante foi encontrado")
+
+    if student.name:
+        db_student.name = student.name
+
+    db.commit()
+    db.refresh(db_student)
+    return db_student
+
+
+def update_orientator(db: Session, number_usp: str, orientator: UpdateOrientatorSchema):
+    if not orientator.dict(exclude_none=True):
+        raise HTTPException(status_code=400, detail="Nao há nenhum campo para atualizar")
+
+    db_orientator = db.query(models.Orientator).filter(models.Person.number_usp == number_usp).first()
+    if db_orientator is None:
+        raise HTTPException(status_code=400, detail="Nenhum Orientador foi encontrado")
+
+    if orientator.name:
+        db_orientator.name = orientator.name
+
+    db.commit()
+    db.refresh(db_orientator)
+    return db_orientator
+
+
+def update_coordinator(db: Session, number_usp: str, coordinator: UpdateCoordinatorSchema):
+    if not coordinator.dict(exclude_none=True):
+        raise HTTPException(status_code=400, detail="Nao há nenhum campo para atualizar")
+
+    db_coordinator = db.query(models.Coordinator).filter(models.Person.number_usp == number_usp).first()
+    if db_coordinator is None:
+        raise HTTPException(status_code=400, detail="Nenhum Coordenador foi encontrado")
+
+    if coordinator.name:
+        db_coordinator.name = coordinator.name
+
+    db.commit()
+    db.refresh(db_coordinator)
+    return db_coordinator
 
 
 def exist_person_with_email_or_number_usp(db: Session, email: str, number_usp: str):
