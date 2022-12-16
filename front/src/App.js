@@ -13,7 +13,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Tables from "./pages/Tables";
 import Perfil from "./pages/Perfil";
-import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Main from "./components/layout/Main";
 import "antd/dist/antd.css";
@@ -28,7 +27,6 @@ function App() {
         <Main>
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/tables" component={Tables} />
-          <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/perfil" component={Perfil} />
           <Redirect from="*" to="/dashboard" />
         </Main>

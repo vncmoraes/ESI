@@ -102,26 +102,6 @@ function Sidenav({ color }) {
     </svg>,
   ];
 
-  const signup = [
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      key={0}
-    >
-      <path
-        d="M0,2A2,2,0,0,1,2,0H8a2,2,0,0,1,2,2V8a2,2,0,0,1-2,2H2A2,2,0,0,1,0,8Z"
-        transform="translate(4 4)"
-        fill={color}
-      />
-      <path
-        d="M2,0A2,2,0,0,0,0,2V8a2,2,0,0,0,2,2V4A2,2,0,0,1,4,2h6A2,2,0,0,0,8,0Z"
-        fill={color}
-      />
-    </svg>,
-  ];
-
   return (
     <>
       <div className="brand">
@@ -175,15 +155,10 @@ function Sidenav({ color }) {
         <Menu.Item key="7">
           <NavLink to="/sign-in">
             <span className="icon">{signin}</span>
-            <span className="label">Sign In</span>
+            <span className="label">Login</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="8">
-          <NavLink to="/sign-up">
-            <span className="icon">{signup}</span>
-            <span className="label">Sign Up</span>
-          </NavLink>
-        </Menu.Item>
+
       </Menu>
     </>
   );
